@@ -126,31 +126,37 @@ namespace LogManagerWPF.Services
             }
         }
 
-        public string CreateOutput(List<string> inputList)
+        public List<string> CreateOutput(List<string> inputList)
         {
-            string output = "";
+            List<string> output = new List<string>();
             if (inputList.Any())
             {
                 foreach (var line in inputList)
                 {
-                    output += "\n" + line;
+                    output.Add(line);
                 }
             }
             else
             {
-                output += "\n" + "No fileList found.";
+                output.Add("No fileList found.");
             }
             return output;
         }
 
-        public void ExportOutput(string output, string directory)
+        public void ExportOutput(List<string> outputList, string directory)
         {
-            System.IO.File.WriteAllText((directory + "\\OutputLog.txt"), output);
+            using (StreamWriter sw = File.AppendText($"{directory}\\OutputLog.txt"))
+            {
+                foreach (var output in outputList)
+                {
+                    sw.WriteLine(output);
+                }
+            }
         }
 
-        public string ClearOutput()
+        public List<string> ClearOutput()
         {
-            return "";
+            return new List<string>();
         }
     }
 }

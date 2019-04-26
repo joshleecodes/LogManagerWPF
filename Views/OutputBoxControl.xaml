@@ -14,13 +14,10 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0"  Name="OutputBoxTitle" Margin="10" FontWeight="Bold" FontSize="16">Output:</TextBlock>
-        <ScrollViewer Grid.Row="1" Margin="10" IsEnabled="True">
-            <TextBlock  Name="OutputBoxTextBlock" Height="130" Text="{Binding Output, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
-        </ScrollViewer>
+        <ListBox Grid.Row="1" Margin="10" Height="130" ItemsSource="{Binding Output, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></ListBox>
         <StackPanel Grid.Row="2" Name="OutputBoxButtonPanel" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Name="OutputBoxExportBtn" Margin="5 10" Content="Export" Width="100" Height="20" Command="{Binding ExportOutputCommand}"/>
             <Button Name="OutputBoxClearBtn" Margin="5 10" Content="Clear" Width="100" Height="20" Command="{Binding ClearOutputCommand}"/>
         </StackPanel>
-
     </Grid>
 </UserControl>
