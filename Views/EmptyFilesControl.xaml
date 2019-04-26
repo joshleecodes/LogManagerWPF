@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="LogManagerWPF.EmptyFilesControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LogManagerWPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="450">
+
+    <Grid Name="EmptyFilesPanel" Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0"  Name="EmptyFilesTitle" Margin="10" FontWeight="Bold" FontSize="16" >Empty Files:</TextBlock>
+        <StackPanel Grid.Column="1" Name="EmptyFilesBtnPanel" Orientation="Horizontal" VerticalAlignment="Top">
+            <Button Name="EmptyFilesSearchBtn" Margin="5 10" Content="Search" Width="100" Height="20" Command="{Binding SearchEmptyFilesCommand}"/>
+            <Button Name="EmptyFilesDeleteBtn" Margin="5 10" Content="Delete" Width="100" Height="20" Command="{Binding DeleteEmptyFilesCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
